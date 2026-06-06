@@ -20,14 +20,14 @@ if (searchInput) {
 }
 
 
-// Cart System with Local Storage
+// Cart System
 
-let cartCount = localStorage.getItem("cartCount") || 0;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartDisplay = document.getElementById("cart-count");
 
 if (cartDisplay) {
-    cartDisplay.textContent = cartCount;
+    cartDisplay.textContent = cart.length;
 }
 
 const buttons = document.querySelectorAll(".add-cart");
@@ -35,14 +35,24 @@ const buttons = document.querySelectorAll(".add-cart");
 buttons.forEach(button => {
     button.addEventListener("click", () => {
 
-        cartCount++;
+        const productCard = button.parentElement;
 
-        localStorage.setItem("cartCount", cartCount);
+        const name = productCard.querySelector("h3").innerText;
+        const price = productCard.querySelector("p").innerText;
+
+        const product = {
+            name,
+            price
+        };
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
 
         if (cartDisplay) {
-            cartDisplay.textContent = cartCount;
+            cartDisplay.textContent = cart.length;
         }
 
-        alert("Item added to cart!");
+        alert(name + " added to cart!");
     });
 });

@@ -24,15 +24,86 @@
         <button onclick="clearCart()" class="clear-btn">
             Clear Cart
         </button>
+        <button onclick="checkout()" class="checkout-btn">
+            Proceed To Checkout
+        </button>
     </section>
 
     <script>
-        let count = localStorage.getItem("cartCount") || 0;
-        document.getElementById("cart-items").innerText = count;
+        const cartItemsContainer = document.getElementById("cart-items");
 
-        function clearCart() {
-            localStorage.setItem("cartCount", 0);
-            document.getElementById("cart-items").innerText = 0;
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function displayCart() {
+
+            if(cart.length === 0){
+                cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+
+            let html = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+
+                let priceNumber = parseInt(
+                    item.price.replace(/[₹,]/g, "")
+                );
+
+                total += priceNumber;
+
+                html += `
+                    <div class="cart-product">
+                        <h3>${item.name}</h3>
+                        <p>${item.price}</p>
+                        <button onclick="removeItem(${index})">
+                            Remove
+                        </button>
+                    </div>
+                    <hr>
+                `;
+            });
+
+            html += `<h2>Total: ₹${total.toLocaleString()}</h2>`;
+
+            cartItemsContainer.innerHTML = html;
+        }
+
+        function removeItem(index){
+            cart.splice(index,1);
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            displayCart();
+        }
+
+        function clearCart(){
+
+                    localStorage.removeItem("cart");
+
+                    cart = [];
+
+                    displayCart();
+                }
+
+                displayCart();
+                function checkout(){
+
+            if(cart.length === 0){
+                alert("Your cart is empty!");
+                return;
+            }
+
+            alert("Order Placed Successfully! 🎉");
+
+            localStorage.removeItem("cart");
+
+            cart = [];
+
+            displayCart();
         }
     </script>
 
