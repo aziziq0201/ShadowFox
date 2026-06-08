@@ -1,4 +1,9 @@
-const text = "Web Development Intern @ ShadowFox";
+const roles = [
+  "Frontend Developer",
+  "Web Development Intern",
+  "IT Student",
+  "Future Software Engineer"
+];
 
 let i = 0;
 

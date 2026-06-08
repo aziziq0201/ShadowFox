@@ -34,6 +34,43 @@
         <img src="Assets/banners/banner.jpg" alt="Banner">
     </section>
 
+    <!-- Filter Section -->
+    <section class="filter-section">
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-category="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-category="phones">
+                Phones
+            </button>
+
+            <button class="filter-btn" data-category="laptops">
+                Laptops
+            </button>
+
+            <button class="filter-btn" data-category="audio">
+                Audio
+            </button>
+
+            <button class="filter-btn" data-category="accessories">
+                Accessories
+            </button>
+
+            <button class="filter-btn" data-category="wearables">
+                Wearables
+            </button>
+
+        </div>
+
+        <p class="product-count">
+            Showing <span id="productCount">6</span> Products
+        </p>
+
+    </section>
+
     <!-- Products -->
     <section class="products-section">
 
@@ -41,53 +78,90 @@
 
         <div class="products">
 
-            <div class="product-card">
+            <div class="product-card" data-category="phones">
                 <img src="Assets/Products/phone.jpg" alt="Smartphone">
+
                 <h3>Smartphone</h3>
+
                 <p>₹24,999</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-category="laptops">
                 <img src="Assets/Products/laptop.jpg" alt="Laptop">
+
                 <h3>Laptop</h3>
+
                 <p>₹59,999</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-category="audio">
                 <img src="Assets/Products/headphone.jpg" alt="Headphones">
+
                 <h3>Headphones</h3>
+
                 <p>₹2,499</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-category="wearables">
                 <img src="Assets/Products/watch.jpg" alt="Smart Watch">
+
                 <h3>Smart Watch</h3>
+
                 <p>₹3,999</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-category="accessories">
                 <img src="Assets/Products/keyboard.jpg" alt="Keyboard">
+
                 <h3>Keyboard</h3>
+
                 <p>₹1,299</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-category="accessories">
                 <img src="Assets/Products/mouse.jpg" alt="Mouse">
+
                 <h3>Mouse</h3>
+
                 <p>₹799</p>
-                <button class="add-cart">Add to Cart</button>
+
+                <button class="add-cart">
+                    Add to Cart
+                </button>
             </div>
 
         </div>
 
     </section>
 
+    <!-- Toast Notification -->
+
+    <div id="toast" class="toast">
+        Product Added To Cart
+    </div>
+
     <!-- Footer -->
+
     <footer>
         <p>© 2026 TechStore | Built by Aziz Iqbal</p>
     </footer>
